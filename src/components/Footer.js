@@ -19,7 +19,7 @@ export default function Footer({completed}) {
     let todosCompleted = 0;
 
     const dispatch = useDispatch();
-    if (completed === false) {
+    if (!completed) {
         todosRemaining = todos.filter((todo) => !todo.completed).length;
     } else {
         todosCompleted = todos.filter((todo) => todo.completed).length;
@@ -37,30 +37,34 @@ export default function Footer({completed}) {
     return (
         <div className="mt-4 flex justify-between text-xs text-gray-500">
             {
-                completed === false
+                !completed
                     ? (<p>{numberOfTodos(todosRemaining)} left</p>)
                     : (<p>{numberOfTodos(todosCompleted)} completed</p>)
             }
-            <ul className="flex space-x-1 items-center text-xs">
-                <li
-                    className={`h-3 w-3 border-2 border-green-500 md:hover:bg-green-500 rounded-full cursor-pointer ${
-                        colors.includes("green") && "bg-green-500"
-                    }`}
-                    onClick={() => handleColorChange("green")}
-                />
-                <li
-                    className={`h-3 w-3 border-2 border-red-500 md:hover:bg-red-500 rounded-full cursor-pointer ${
-                        colors.includes("red") && "bg-red-500"
-                    }`}
-                    onClick={() => handleColorChange("red")}
-                />
-                <li
-                    className={`h-3 w-3 border-2 border-yellow-500 md:hover:bg-yellow-500 rounded-full cursor-pointer ${
-                        colors.includes("yellow") && "bg-yellow-500"
-                    }`}
-                    onClick={() => handleColorChange("yellow")}
-                />
-            </ul>
+            {
+                !completed && (
+                    <ul className="flex space-x-1 items-center text-xs">
+                        <li
+                            className={`h-3 w-3 border-2 border-green-500 md:hover:bg-green-500 rounded-full cursor-pointer ${
+                                colors.includes("green") && "bg-green-500"
+                            }`}
+                            onClick={() => handleColorChange("green")}
+                        />
+                        <li
+                            className={`h-3 w-3 border-2 border-red-500 md:hover:bg-red-500 rounded-full cursor-pointer ${
+                                colors.includes("red") && "bg-red-500"
+                            }`}
+                            onClick={() => handleColorChange("red")}
+                        />
+                        <li
+                            className={`h-3 w-3 border-2 border-yellow-500 md:hover:bg-yellow-500 rounded-full cursor-pointer ${
+                                colors.includes("yellow") && "bg-yellow-500"
+                            }`}
+                            onClick={() => handleColorChange("yellow")}
+                        />
+                    </ul>
+                )
+            }
         </div>
     );
 }

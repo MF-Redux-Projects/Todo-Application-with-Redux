@@ -18,6 +18,8 @@ export default function Header() {
         e.preventDefault();
         dispatch(addTodo(input));
         setInput("");
+
+        //toast
     };
 
     const completeHadler = () => {

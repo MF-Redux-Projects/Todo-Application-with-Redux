@@ -24,7 +24,7 @@ function App() {
                 </div>
 
                 <div className="w-full max-w-3xl shadow-lg rounded-lg p-6 bg-white">
-
+                    <h3 className={`text-xl font-bold mb-4`}>Completed Tasks</h3>
                     <TodoList completed />
 
                     <hr className="mt-4" />
