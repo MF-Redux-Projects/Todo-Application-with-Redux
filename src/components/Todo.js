@@ -46,7 +46,7 @@ export default function Todo({ todo }) {
             </div>
 
             <div
-                className={`select-none flex-1 ${completed && "line-through"}`}
+                className={`select-none flex-1`}
             >
                 {text}
             </div>
@@ -56,21 +56,21 @@ export default function Todo({ todo }) {
                     color === "green" && "bg-green-500"
                 }`}
                 onClick={() => handleColorChange(id, "green")}
-            ></div>
+            />
 
             <div
                 className={`flex-shrink-0 h-4 w-4 rounded-full border-2 ml-auto cursor-pointer hover:bg-yellow-500 border-yellow-500 ${
                     color === "yellow" && "bg-yellow-500"
                 }`}
                 onClick={() => handleColorChange(id, "yellow")}
-            ></div>
+            />
 
             <div
                 className={`flex-shrink-0 h-4 w-4 rounded-full border-2 ml-auto cursor-pointer hover:bg-red-500 border-red-500 ${
                     color === "red" && "bg-red-500"
                 }`}
                 onClick={() => handleColorChange(id, "red")}
-            ></div>
+            />
 
             <img
                 src={cancelImage}

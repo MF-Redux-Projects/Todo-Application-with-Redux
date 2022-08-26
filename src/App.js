@@ -8,19 +8,28 @@ import store from "./redux/store";
 function App() {
     return (
         <Provider store={store}>
-            <div className="grid place-items-center bg-blue-100 h-screen px-6 font-sans">
+            <div className="grid place-items-center bg-blue-100 px-6 font-sans pt-24">
                 <Navbar />
 
-                <div className="w-full max-w-3xl shadow-lg rounded-lg p-6 bg-white">
+                <div className="w-full max-w-3xl shadow-lg rounded-lg p-6 bg-white mb-5">
                     <Header />
 
                     <hr className="mt-4" />
 
-                    <TodoList />
+                    <TodoList completed={false} />
 
                     <hr className="mt-4" />
 
-                    <Footer />
+                    <Footer completed={false} />
+                </div>
+
+                <div className="w-full max-w-3xl shadow-lg rounded-lg p-6 bg-white">
+
+                    <TodoList completed />
+
+                    <hr className="mt-4" />
+
+                    <Footer completed />
                 </div>
             </div>
         </Provider>
