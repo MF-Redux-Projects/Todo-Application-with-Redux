@@ -1,5 +1,6 @@
 import {
     ADDED,
+    EDITED,
     ALLCOMPLETED,
     CLEARCOMPLETED,
     COLORSELECTED,
@@ -29,6 +30,17 @@ const reducer = (state = initialState, action) => {
                 },
             ];
 
+        case EDITED:
+            return state.map((todo) => {
+                if (todo.id === action.payload.todoId) {
+                    return {
+                        ...todo,
+                        text: action.payload.todoText,
+                    };
+                }
+                return todo;
+            })
+
         case TOGGLED:
             return state.map((todo) => {
                 if (todo.id !== action.payload) {
@@ -42,7 +54,7 @@ const reducer = (state = initialState, action) => {
             });
 
         case COLORSELECTED:
-            const { todoId, color } = action.payload;
+            const {todoId, color} = action.payload;
             return state.map((todo) => {
                 if (todo.id !== todoId) {
                     return todo;
