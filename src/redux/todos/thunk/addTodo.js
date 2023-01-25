@@ -2,7 +2,7 @@ import { added } from "../actions";
 
 const addTodo = (todoText) => {
     return async (dispatch) => {
-        const response = await fetch("https://lws-fake-product-api.herokuapp.com/todos", {
+        const response = await fetch("https://mf-redux.onrender.com/todos", {
             method: "POST",
             body: JSON.stringify({
                 text: todoText,

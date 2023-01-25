@@ -2,7 +2,7 @@ import { colorSelected } from "../actions";
 
 const updateColor = (todoId, color) => {
     return async (dispatch) => {
-        const response = await fetch(`https://lws-fake-product-api.herokuapp.com/todos/${todoId}`, {
+        const response = await fetch(`https://mf-redux.onrender.com/todos/${todoId}`, {
             method: "PATCH",
             body: JSON.stringify({
                 color: color,
